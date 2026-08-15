@@ -1,0 +1,35 @@
+# ============================================================================
+# LaunchStack AWS — Dev Environment Configuration
+# ============================================================================
+# Copy this file to terraform.tfvars and fill in your values:
+#   cp terraform.tfvars.example terraform.tfvars
+# ============================================================================
+
+# REQUIRED: Your project name (lowercase, hyphens ok)
+project_name = "my-app"
+
+# AWS region (default: us-east-1)
+# aws_region = "us-east-1"
+
+# Container image to deploy
+# For testing, leave as nginx:latest
+# For your app, set to your ECR image after first deploy
+container_image = "nginx:latest"
+
+# Port your container listens on
+container_port = 80
+
+# Environment variables for your container
+# environment_variables = [
+#   { name = "NODE_ENV", value = "development" },
+#   { name = "LOG_LEVEL", value = "debug" },
+# ]
+
+# Email for monitoring alerts (premium module)
+# alert_email = "your-email@example.com"
+
+# Additional tags
+# additional_tags = {
+#   Team  = "backend"
+#   Owner = "your-name"
+# }
