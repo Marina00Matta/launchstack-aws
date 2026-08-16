@@ -32,3 +32,4 @@ modules/monitoring/*.tf
 modules/security/*.tf
 modules/cicd-github-actions/*.yml
 modules/cicd-gitlab/.gitlab-ci.yml
+workloadidentity_accessKeys.csv

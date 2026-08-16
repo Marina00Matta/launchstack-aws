@@ -1,6 +1,6 @@
 # CI/CD — GitHub Actions Module (Premium)
 
-This module is part of the [LaunchStack AWS Premium](https://gumroad.com/l/launchstack-aws) package.
+This module is part of the [LaunchStack AWS Premium](https://marinamedhat0.gumroad.com/l/qkpvsi) package.
 
 ## What it sets up
 
@@ -23,4 +23,4 @@ This module is part of the [LaunchStack AWS Premium](https://gumroad.com/l/launc
 
 ## Get the premium package
 
-[Purchase LaunchStack AWS Premium](https://gumroad.com/l/launchstack-aws) to unlock this module.
+[Purchase LaunchStack AWS Premium](https://marinamedhat0.gumroad.com/l/qkpvsi) to unlock this module.

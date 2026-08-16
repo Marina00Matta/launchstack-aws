@@ -1,6 +1,6 @@
 # Monitoring Module (Premium)
 
-This module is part of the [LaunchStack AWS Premium](https://gumroad.com/l/launchstack-aws) package.
+This module is part of the [LaunchStack AWS Premium](https://marinamedhat0.gumroad.com/l/qkpvsi) package.
 
 ## What it sets up
 
@@ -28,4 +28,4 @@ module "monitoring" {
 
 ## Get the premium package
 
-[Purchase LaunchStack AWS Premium](https://gumroad.com/l/launchstack-aws) to unlock this module.
+[Purchase LaunchStack AWS Premium](https://marinamedhat0.gumroad.com/l/qkpvsi) to unlock this module.
