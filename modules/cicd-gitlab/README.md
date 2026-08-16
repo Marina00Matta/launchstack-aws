@@ -1,6 +1,6 @@
 # CI/CD — GitLab CI Module (Premium)
 
-This module is part of the [LaunchStack AWS Premium](https://marinamedhat0.gumroad.com/l/qkpvsi) package.
+This module is part of the [LaunchStack AWS Premium](https://launchstacq.gumroad.com/l/qkpvsi) package.
 
 ## What it sets up
 
@@ -23,4 +23,4 @@ This module is part of the [LaunchStack AWS Premium](https://marinamedhat0.gumro
 
 ## Get the premium package
 
-[Purchase LaunchStack AWS Premium](https://marinamedhat0.gumroad.com/l/qkpvsi) to unlock this module.
+[Purchase LaunchStack AWS Premium](https://launchstacq.gumroad.com/l/qkpvsi) to unlock this module.

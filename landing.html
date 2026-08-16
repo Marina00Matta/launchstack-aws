@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0a0e17;
+  --bg-card: #111827;
+  --bg-card-hover: #1a2332;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --accent: #22d3ee;
+  --accent-glow: rgba(34, 211, 238, 0.15);
+  --accent-green: #34d399;
+  --accent-amber: #fbbf24;
+  --accent-red: #f87171;
+  --border: #1e293b;
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'Inter', -apple-system, sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f1f5f9;
+    --text: #0f172a;
+    --text-muted: #475569;
+    --text-dim: #94a3b8;
+    --accent: #0891b2;
+    --accent-glow: rgba(8, 145, 178, 0.1);
+    --accent-green: #059669;
+    --accent-amber: #d97706;
+    --accent-red: #dc2626;
+    --border: #e2e8f0;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---- HERO ---- */
+.hero {
+  padding: 80px 0 60px;
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--accent);
+  background: var(--accent-glow);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+  letter-spacing: 0.5px;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 span { color: var(--accent); }
+
+.hero-sub {
+  font-size: 18px;
+  color: var(--text-muted);
+  max-width: 560px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+
+.hero-cta {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--accent);
+  padding: 16px 40px;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.hero-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 30px rgba(34, 211, 238, 0.3);
+}
+
+.hero-price {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+/* ---- TERMINAL DEMO ---- */
+.terminal {
+  background: #0d1117;
+  border: 1px solid #21262d;
+  border-radius: 10px;
+  margin: 0 auto 60px;
+  max-width: 640px;
+  overflow: hidden;
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #161b22;
+  border-bottom: 1px solid #21262d;
+}
+
+.terminal-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+}
+.terminal-dot.r { background: #f87171; }
+.terminal-dot.y { background: #fbbf24; }
+.terminal-dot.g { background: #34d399; }
+
+.terminal-body {
+  padding: 20px;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 2;
+  color: #8b949e;
+  overflow-x: auto;
+}
+
+.terminal-body .cmd { color: #e6edf3; }
+.terminal-body .ok { color: var(--accent-green); }
+.terminal-body .url { color: var(--accent); }
+
+/* ---- PROBLEM / SOLUTION ---- */
+.section {
+  padding: 60px 0;
+}
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.section h2 {
+  font-size: clamp(24px, 3.5vw, 34px);
+  font-weight: 700;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+.pain-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pain-list li {
+  font-size: 16px;
+  color: var(--text-muted);
+  padding-left: 28px;
+  position: relative;
+}
+
+.pain-list li::before {
+  content: '✗';
+  position: absolute;
+  left: 0;
+  color: var(--accent-red);
+  font-weight: 700;
+}
+
+/* ---- MODULES GRID ---- */
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.module-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.module-card:hover {
+  border-color: var(--accent);
+  background: var(--bg-card-hover);
+}
+
+.module-icon {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.module-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.module-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ---- COST TABLE ---- */
+.cost-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+  font-size: 15px;
+}
+
+.cost-table th,
+.cost-table td {
+  text-align: left;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.cost-table th {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.cost-table td:last-child {
+  font-family: var(--mono);
+  color: var(--accent-green);
+  text-align: right;
+}
+
+/* ---- AUDIENCE ---- */
+.check-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.check-list li {
+  font-size: 16px;
+  color: var(--text-muted);
+  padding-left: 28px;
+  position: relative;
+}
+
+.check-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ---- WHAT'S INCLUDED ---- */
+.included-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.included-list li {
+  font-size: 15px;
+  color: var(--text-muted);
+  padding-left: 28px;
+  position: relative;
+}
+
+.included-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent-green);
+  font-weight: 700;
+}
+
+/* ---- CTA BOTTOM ---- */
+.cta-section {
+  text-align: center;
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+
+.cta-section h2 {
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.cta-section p {
+  color: var(--text-muted);
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+.cta-btn {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--bg);
+  background: var(--accent);
+  padding: 18px 48px;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(34, 211, 238, 0.35);
+}
+
+.guarantee {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+/* ---- FOOTER ---- */
+.footer {
+  text-align: center;
+  padding: 40px 0;
+  font-size: 13px;
+  color: var(--text-dim);
+  border-top: 1px solid var(--border);
+}
+
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ---- DIVIDER ---- */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 600px) {
+  .hero { padding: 56px 0 40px; }
+  .hero-cta, .cta-btn { width: 100%; text-align: center; }
+  .modules-grid { grid-template-columns: 1fr; }
+  .terminal-body { font-size: 11px; }
+  .section { padding: 44px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">terraform apply → production</div>
+    <h1>Production-ready AWS<br>in <span>30 minutes</span></h1>
+    <p class="hero-sub">Stop gluing random Terraform modules together. LaunchStack gives you VPC, ECS Fargate, RDS, monitoring, security, and CI/CD in one tested, documented kit.</p>
+    <a class="hero-cta" data-gumroad-action="buy">Get LaunchStack — <span data-gumroad-field="price">$99</span></a>
+    <p class="hero-price">One-time purchase. Free updates for 12 months.</p>
+  </div>
+</section>
+
+<!-- TERMINAL -->
+<div class="container">
+  <div class="terminal">
+    <div class="terminal-bar">
+      <div class="terminal-dot r"></div>
+      <div class="terminal-dot y"></div>
+      <div class="terminal-dot g"></div>
+    </div>
+    <div class="terminal-body">
+      <span class="cmd">$ cd environments/dev</span><br>
+      <span class="cmd">$ terraform init</span><br>
+      <span class="ok">Terraform has been successfully initialized!</span><br>
+      <span class="cmd">$ terraform apply</span><br>
+      <span class="ok">Apply complete! Resources: 35 added, 0 changed, 0 destroyed.</span><br><br>
+      <span class="cmd">alb_url = </span><span class="url">"http://my-app-dev-alb.us-east-1.elb.amazonaws.com"</span><br>
+      <span class="ok">Your infrastructure is live. ✓</span>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PROBLEM -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">The problem</div>
+    <h2>You've done this before and it always takes too long</h2>
+    <ul class="pain-list">
+      <li>Two weeks piecing together random Terraform modules from GitHub</li>
+      <li>No monitoring until something breaks at 2am on a Saturday</li>
+      <li>Security "best practices" you'll get to later (you won't)</li>
+      <li>CI/CD that's held together with duct tape and Stack Overflow answers</li>
+      <li>Zero documentation because you're the only engineer and who has time</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- MODULES -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">What you get</div>
+    <h2>7 production-grade Terraform modules</h2>
+
+    <div class="modules-grid">
+      <div class="module-card">
+        <div class="module-icon">🌐</div>
+        <h3>Networking</h3>
+        <p>VPC with public/private subnets across 3 AZs, NAT Gateway, VPC Flow Logs. The network your containers actually need.</p>
+      </div>
+
+      <div class="module-card">
+        <div class="module-icon">📦</div>
+        <h3>ECS Fargate</h3>
+        <p>Cluster, service, ALB, auto-scaling, ECR with image scanning, health checks. No servers to manage.</p>
+      </div>
+
+      <div class="module-card">
+        <div class="module-icon">🗄️</div>
+        <h3>RDS PostgreSQL</h3>
+        <p>Multi-AZ, encryption at rest, automated backups, performance tuning. Credentials in SSM Parameter Store — no hardcoded passwords.</p>
+      </div>
+
+      <div class="module-card">
+        <div class="module-icon">📊</div>
+        <h3>Monitoring</h3>
+        <p>CloudWatch dashboard with 10 widgets. 7 alarms: CPU, memory, 5xx, latency, unhealthy hosts, RDS CPU, storage. Email alerts via SNS.</p>
+      </div>
+
+      <div class="module-card">
+        <div class="module-icon">🔒</div>
+        <h3>Security</h3>
+        <p>CloudTrail audit logging, hardened S3, 4 AWS Config compliance rules, IAM least-privilege, SSM secrets management.</p>
+      </div>
+
+      <div class="module-card">
+        <div class="module-icon">🚀</div>
+        <h3>CI/CD</h3>
+        <p>Both GitHub Actions and GitLab CI. Build, push to ECR, deploy to ECS. Terraform plan on PRs. OIDC auth. Automatic rollback.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- COST -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">AWS cost estimates</div>
+    <h2>Know what you'll spend before you deploy</h2>
+    <table class="cost-table">
+      <thead>
+        <tr>
+          <th>Environment</th>
+          <th style="text-align:right">Monthly estimate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Development</td><td>$45 – $65</td></tr>
+        <tr><td>Staging</td><td>$80 – $120</td></tr>
+        <tr><td>Production</td><td>$150 – $300</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:16px; font-size:13px; color:var(--text-dim);">Based on minimal workloads in us-east-1. Actual costs depend on traffic and data.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- AUDIENCE -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Who this is for</div>
+    <h2>Engineers who need infrastructure today, not next month</h2>
+    <ul class="check-list">
+      <li>Startup engineers shipping a product on a deadline</li>
+      <li>Solo developers deploying their first serious AWS project</li>
+      <li>Small teams (2–10) without a dedicated platform engineer</li>
+      <li>Anyone tired of copy-pasting from Stack Overflow and hoping for the best</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- INCLUDED -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">What's in the download</div>
+    <h2>Everything you need, nothing you don't</h2>
+    <ul class="included-list">
+      <li>Complete Terraform source code — 7 modules, tested and validated</li>
+      <li>GitHub Actions + GitLab CI pipeline files, ready to use</li>
+      <li>Pre-configured environments: dev, staging, and production</li>
+      <li>Full documentation with architecture diagrams and cost estimates</li>
+      <li>Example app that deploys in 5 minutes to verify the setup</li>
+      <li>Free updates for 12 months</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- FREE PREVIEW -->
+<section class="section">
+  <div class="container" style="text-align:center;">
+    <div class="section-label">Try before you buy</div>
+    <h2>Free preview on GitHub</h2>
+    <p style="color:var(--text-muted); margin-bottom:20px; font-size:16px;">The networking and ECS Fargate modules are open source. See the code quality for yourself.</p>
+    <a href="https://github.com/Marina00Matta/launchstack-aws" target="_blank" style="color:var(--accent); font-weight:600; font-size:16px;">github.com/Marina00Matta/launchstack-aws →</a>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ship infrastructure, not excuses</h2>
+    <p>One terraform apply. 35 resources. 30 minutes to production.</p>
+    <a class="cta-btn" data-gumroad-action="buy">Get LaunchStack — <span data-gumroad-field="price">$99</span></a>
+    <p class="guarantee">30-day money-back guarantee. If it doesn't work for your use case, you get a full refund.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    Built by <a href="https://github.com/Marina00Matta" target="_blank">Marina Matta</a> — an SRE who got tired of rebuilding the same infrastructure at every job.
+  </div>
+</footer>
+
+</body>
+</html>

@@ -17,7 +17,7 @@ One `terraform apply` gives you a fully configured AWS environment with networki
 | **Networking** | VPC, public/private subnets across 3 AZs, NAT Gateway, flow logs |
 | **ECS Fargate** | Cluster, service, task definition, ALB, auto-scaling, health checks |
 
-### [Premium](https://marinamedhat0.gumroad.com/l/qkpvsi) — $99
+### [Premium](https://launchstacq.gumroad.com/l/qkpvsi) — $99
 
 Everything above, plus:
 
@@ -158,4 +158,4 @@ Found a bug? Want to improve something? PRs are welcome. See [CONTRIBUTING.md](C
 
 Free modules: MIT License. See [LICENSE](LICENSE).
 
-Premium modules: Commercial license. See [purchase page](https://marinamedhat0.gumroad.com/l/qkpvsi).
+Premium modules: Commercial license. See [purchase page](https://launchstacq.gumroad.com/l/qkpvsi).

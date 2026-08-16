@@ -1,6 +1,6 @@
 # RDS Module (Premium)
 
-This module is part of the [LaunchStack AWS Premium](https://marinamedhat0.gumroad.com/l/qkpvsi) package.
+This module is part of the [LaunchStack AWS Premium](https://launchstacq.gumroad.com/l/qkpvsi) package.
 
 ## What it sets up
 
@@ -32,4 +32,4 @@ module "rds" {
 
 ## Get the premium package
 
-[Purchase LaunchStack AWS Premium](https://marinamedhat0.gumroad.com/l/qkpvsi) to unlock this module and all other premium modules including monitoring, security, and CI/CD.
+[Purchase LaunchStack AWS Premium](https://launchstacq.gumroad.com/l/qkpvsi) to unlock this module and all other premium modules including monitoring, security, and CI/CD.
